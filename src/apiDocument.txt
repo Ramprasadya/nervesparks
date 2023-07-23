@@ -1,0 +1,45 @@
+Car Dealership API Documentation
+Base URL: /api
+1. Upload a File
+Method: POST
+Endpoint: /upload
+Content Type: multipart/form-data
+Description: Upload a file to the server.
+Request Body:
+file: The file to upload.
+Response:
+Status: 200 OK
+Body: { message: 'File uploaded successfully.' }
+Status: 400 Bad Request
+Body: { error: 'No file uploaded.' }
+Status: 500 Internal Server Error
+Body: { error: 'An error occurred during file upload.' }
+2. Get Data
+Method: GET
+Endpoint: /data
+Description: Get some dummy data.
+Response:
+Status: 200 OK
+Body: { message: 'Data retrieved successfully.' }
+Status: 500 Internal Server Error
+Body: { error: 'An error occurred while fetching data.' }
+Usage
+Upload a File:
+
+Endpoint: /api/upload
+Method: POST
+Content Type: multipart/form-data
+Request:
+Attach a file to the field file.
+Response:
+Success: Status 200 OK with the message "File uploaded successfully."
+Failure: Status 400 Bad Request if no file is uploaded, or Status 500 Internal Server Error if an error occurs during upload.
+Get Data:
+
+Endpoint: /api/data
+Method: GET
+Description: Retrieve some dummy data.
+Response:
+Success: Status 200 OK with the message "Data retrieved successfully."
+Failure: Status 500 Internal Server Error if an error occurs while fetching data.
+Note: The provided API is for demonstration purposes and does not have any actual functionality. The simulateAsyncOperation function inside the code simulates an asynchronous operation that always throws an error for demonstration purposes. In a real-world scenario, you would replace this function with actual database queries or API calls to handle real data and logic.

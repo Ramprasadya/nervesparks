@@ -1,21 +1,21 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const cors = require('cors')
+const port = 5000
+const ConnectToMongo = require('./db/db');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+ConnectToMongo();
 
-app.get('/fact/:id', (req, res) => {
-    let num= req.params.id;
-    console.log(num)
-    let i=1;
-    let fact=1;
-    for(i=1;i<=num;i++)
-        fact*=i;
-    let response={"factorial":fact};
-    res.send(response)
-  })
+
+app.use(cors())
+// middleware to use json
+app.use(express.json());
+
+// Available Routes
+app.use('/api/' ,require('./routes/Endpoint'));
+app.use('/api/',require('./routes/user'));
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)
